@@ -1,3 +1,5 @@
+package com.patrickcozzi;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +19,7 @@ import java.util.List;
  */
 public class Deck {
     
-    static final int DECK_SIZE = 24;
+    public static final int DECK_SIZE = 24;
     
     
     public static Deck getFullDeck() {
@@ -42,19 +44,21 @@ public class Deck {
     public void shuffle() {
         Collections.shuffle(cards);
     }
-    
-    public void deal() {
-        List<Card> hand1 = new ArrayList(24);
-        List<Card> hand2 = new ArrayList(24);
-        hand1 = cards.subList(0,12);
-        System.out.print (hand1);
-        hand2 = cards.subList (12,24);
-        
+    /**
+     * Removes one card from the deck and returns it.
+     * @return The card at the "top" of the deck, or null if the deck is empty.
+     */
+    public Card drawCard() {
+        if (!this.cards.isEmpty()) {
+            return this.cards.remove(0);
+        }
+        return null;
     }
     
-    public  getHand1{
-        
+    public int cardCount() {
+        return this.cards.size();
     }
+    
     
     public void print() {
         for (Card card : cards) {
@@ -63,10 +67,6 @@ public class Deck {
         
     }
     
-        
-        
-        
-        
-    }
+}
     
 
